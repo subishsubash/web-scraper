@@ -38,10 +38,10 @@
 
 ```
 docker pull mongo
-docker pull docker pull subash12396/web-scraper
+docker pull docker pull subash12396/web-scraper:1.1
 docker run --name mongodb -d mongo
-docker run -p 8080:80 --name web-scraper-container -d subash12396/subash12396/web-scraper
-docker run -p 9090:9090 --link mongodb:mongo --name web-scraper-container  -d subash12396/web-scraper
+docker run -p 8080:80 --name web-scraper-container -d subash12396/subash12396/web-scraper:1.1
+docker run -p 9090:9090 --link mongodb:mongo --name web-scraper-container  -d subash12396/web-scraper:1.1
 ```
 <h2>Testing</h2>
 
