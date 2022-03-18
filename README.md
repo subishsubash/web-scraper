@@ -40,7 +40,7 @@
 - org.openapitools (Swagger)
 ----
 
-<h2>Depolyment</h2>
+<h2>Deployment</h2>
 
 ```
 docker pull mongo
