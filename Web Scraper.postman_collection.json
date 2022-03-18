@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "2496fb51-e566-4a44-92c2-7215366bfcae",
+		"name": "Web Scraper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://subash-web-scraper.herokuapp.com/version",
+					"protocol": "https",
+					"host": [
+						"subash-web-scraper",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get HTML File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://subash-web-scraper.herokuapp.com/v1/webscraper/htmlfile?url=https://www.google.com/",
+					"protocol": "https",
+					"host": [
+						"subash-web-scraper",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"webscraper",
+						"htmlfile"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://www.google.com/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HTML Crawls",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\" : \"https://www.google.com/\",\r\n    \"requiredDepth\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://subash-web-scraper.herokuapp.com/v1/webscraper/htmlcrawls",
+					"protocol": "https",
+					"host": [
+						"subash-web-scraper",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"webscraper",
+						"htmlcrawls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Phone Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://subash-web-scraper.herokuapp.com/v1/webscraper/phoneNumber?url=http://www.wellclean.com/",
+					"protocol": "https",
+					"host": [
+						"subash-web-scraper",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"webscraper",
+						"phoneNumber"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "http://www.wellclean.com/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Phone Number by crawls",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\" : \"http://www.wellclean.com/\",\r\n    \"requiredDepth\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://subash-web-scraper.herokuapp.com/v1/webscraper/phonenumbercrawls",
+					"protocol": "https",
+					"host": [
+						"subash-web-scraper",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"v1",
+						"webscraper",
+						"phonenumbercrawls"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
