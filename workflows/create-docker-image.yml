@@ -1,0 +1,26 @@
+name: Creating Docker Image and publish to docker hub on merge in main branch
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 8
+    - name: Build and Package Application as Jar
+      run: mvn -B package spring-boot:repackage --file pom.xml
+
+    - name: Create & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: subash12396/web-scraper
+        tag: 1.1
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}

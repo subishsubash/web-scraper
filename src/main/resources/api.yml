@@ -1,0 +1,134 @@
+openapi: 3.0.1
+info:
+  title: Web Scraper
+  description: Web Scraper, Service will contains API to handle the requests
+  version: 1.0.0
+servers:
+  - url: "http://localhost:8080/v1"
+    description: Local
+paths:
+  /webscraper/htmlfile:
+    get:
+      tags:
+        - Retrive HTML File
+      summary: Get HTML File
+      description: Retrive HTML File for the given URL
+      operationId: getHtmlFile
+      parameters:
+        - name: url
+          in: query
+          description: input url
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: HTML file
+          content:
+            application/html:
+              schema:
+                type: string
+                format: binary
+        '500' :
+          description: Internal Server Error, Kinldy Check logs.
+  /webscraper/htmlcrawls:
+    post:
+      tags:
+        - Get HTML Links
+      summary: Get HTML Links
+      description: Get HTML Links for the given URL
+      operationId: getHtmlLinks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HTMLCrawls'
+      responses:
+        '200':
+          description: HTML Links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HTMLLink'
+        '500':
+          description: Internal Server Error, Kinldy Check logs.
+
+  /webscraper/phoneNumber:
+    get:
+      tags:
+        - Get Phone Number
+      summary: Get Phone Number
+      description: Get Phone Number for the given URL
+      operationId: getPhoneNumber
+      parameters:
+        - name: url
+          in: query
+          description: input url
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: PhoneNumber
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: "string"
+        '500':
+          description: Internal Server Error, Kinldy Check logs.
+  /webscraper/phonenumbercrawls:
+    post:
+      tags:
+        - Get Phone Numbers
+      summary: Get Phone Numbers by crawling all links
+      description: Get Phone Numbers by crawling all links for the given URL
+      operationId: getPhoneNumberCrawls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HTMLCrawls'
+      responses:
+        '200':
+          description: HTML Links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PhoneNumberCrawls'
+        '500':
+          description: Internal Server Error, Kinldy Check logs.
+components:
+  schemas:
+    HTMLLink:
+      type: "object"
+      properties:
+        Depth:
+          type: "integer"
+        link:
+          type: "string"
+
+    HTMLCrawls:
+      type: "object"
+      properties:
+        url:
+          type: "string"
+        requiredDepth:
+          type: "integer"
+
+    PhoneNumberCrawls:
+      type: "object"
+      properties:
+        url:
+          type: "string"
+        phoneNumber:
+          type: array
+          items:
+            type: "string"
