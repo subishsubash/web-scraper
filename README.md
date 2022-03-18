@@ -13,8 +13,9 @@
  - The Application exposes the various APIs, users can utilize based on their needs. Particularly POST API's getHtmlLinks and getPhoneNumberCrawls are takes input as URL and a requiredDepth, which indicates how deep the system should crawl recursively and fetch data.
  - Choose wisely the requiredDepth value. Increased number leads request wait time. Ideally the requiredDepth can be 1 to 5. 
  - The API getPhoneNumberCrawls also store URL and the corresponding phone numbers in mongo DB.
- - Kindly refer the [swagger yml](https://github.com/subishsubash/web-scraper/blob/main/src/main/resources/api.yml) for the API request and response details.
+ - Refer the [swagger yml](https://github.com/subishsubash/web-scraper/blob/main/src/main/resources/api.yml) for the API request and response details.
  - The request and response of the application are properly logged and most of the error cases are handled with proper logger and response.
+ - Utilize the [Postman collection](https://github.com/subishsubash/web-scraper/blob/main/Web%20Scraper.postman_collection.json) for the Heroku deployment.
 ----
 
 <h2>API's Exposed in Web Scraper</h2>
