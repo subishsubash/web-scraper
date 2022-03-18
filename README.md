@@ -35,7 +35,7 @@
 - Java
 - Spring Boot
 - MongoDB
-2. Backend Libaries
+2. Backend Libraries
 - org.jsoup
 - org.openapitools (Swagger)
 ----
